@@ -1,45 +1,38 @@
-# views.py
+from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework_simplejwt.tokens import RefreshToken
-from .serializers import RegisterUserSerializer, LoginUserSerializer
-from django.contrib.auth import authenticate
-
-class RegisterAPIView(APIView):
-    def post(self, request):
-        serializer = RegisterUserSerializer(data=request.data)
-        if serializer.is_valid():
-            user = serializer.save()
-            # refresh = RefreshToken.for_user(user)
-            # access_token = str(refresh.access_token)
-            # refresh_token = str(refresh)
-            return Response({
-                'message': 'Your Registration is Successful',
-                # 'access_token': access_token,
-                # 'refresh_token': refresh_token
-            }, status=status.HTTP_201_CREATED)
-        return Response({
-            'message': 'Registration Failed!',
-            'errors': serializer.errors
-        }, status=status.HTTP_400_BAD_REQUEST)
-
+from .serializers import LoginUserSerializer, RegisterUserSerializer, UserSerializer
 
 class LoginAPIView(APIView):
+    serializer_class = LoginUserSerializer
+
     def post(self, request):
-        serializer = LoginUserSerializer(data=request.data)
-        if serializer.is_valid():
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid(raise_exception=True):
             user = serializer.validated_data
-            refresh = RefreshToken.for_user(user)
-            access_token = str(refresh.access_token)
-            refresh_token = str(refresh)
-            
-            return Response({
-                'message': 'Login Successful',
-                'access_token': access_token,
-                'refresh_token': refresh_token
-            }, status=status.HTTP_200_OK)
-        return Response({
-            'message': 'Login Failed!',
-            'errors': serializer.errors
-        }, status=status.HTTP_400_BAD_REQUEST)
+            tokens = serializer.create(user)
+            return Response(tokens, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class RegisterAPIView(APIView):
+    serializer_class = RegisterUserSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            user = serializer.save()
+            return Response(UserSerializer(user).data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class RoleAPIView(APIView):
+    def get(self, request):
+        roles = Role.objects.all()
+        serializer = RoleSerializer(roles, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = RoleSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
