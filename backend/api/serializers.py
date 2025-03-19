@@ -1,8 +1,8 @@
-from .models import User
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.password_validation import validate_password
+from .models import User,Company
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -56,3 +56,26 @@ class LoginUserSerializer(serializers.Serializer):
             'access': str(refresh.access_token),
             'user': UserSerializer(validated_data).data, #return user data
         }
+
+class CompanySerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    modified_by = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Company
+        fields = '__all__' # or specify the fields you want to expose
+        read_only_fields = ('last_modified', 'modified_by') # make these read only.
+
+    def create(self, validated_data):
+      # Ensure user is set on create
+      user = self.context['request'].user
+      company = Company.objects.create(user=user, **validated_data)
+      return company
+
+    def update(self, instance, validated_data):
+      # Ensure modified by is set on update
+      user = self.context['request'].user
+      for attr, value in validated_data.items():
+          setattr(instance, attr, value)
+      instance.save(modified_user=user) #Pass the user using the custom save method.
+      return instance
