@@ -70,78 +70,78 @@ class User(AbstractUser):
 #     def __str__(self):
 #         return f"{self.user.username} - {self.company.company_name}"
     
-# class ChartOfAccounts(models.Model):
-#     ACCOUNT_TYPES = (
-#         ('Asset', 'Asset'),
-#         ('Liability', 'Liability'),
-#         ('Equity', 'Equity'),
-#         ('Revenue', 'Revenue'),
-#         ('Expense', 'Expense'),
-#     )
+class ChartOfAccounts(models.Model):
+    ACCOUNT_TYPES = (
+        ('Asset', 'Asset'),
+        ('Liability', 'Liability'),
+        ('Equity', 'Equity'),
+        ('Revenue', 'Revenue'),
+        ('Expense', 'Expense'),
+    )
 
-#     account_name = models.CharField(max_length=255)
-#     account_type = models.CharField(max_length=50, choices=ACCOUNT_TYPES)
-#     parent_account = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
+    account_name = models.CharField(max_length=255)
+    account_type = models.CharField(max_length=50, choices=ACCOUNT_TYPES)
+    parent_account = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
 
-#     def __str__(self):
-#         return self.account_name
+    def __str__(self):
+        return self.account_name
 
-# class GeneralLedger(models.Model):
-#     transaction_id = models.CharField(max_length=200, null= False, unique=True)  # Assuming transaction_item exists and has transaction_id
-#     account = models.ForeignKey('ChartOfAccounts', on_delete=models.CASCADE)
-#     debit = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
-#     credit = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
-#     created_at = models.DateTimeField(auto_now_add=True)
+class GeneralLedger(models.Model):
+    transaction_id = models.CharField(max_length=200, null= False, unique=True)  # Assuming transaction_item exists and has transaction_id
+    account = models.ForeignKey('ChartOfAccounts', on_delete=models.CASCADE)
+    debit = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
+    credit = models.DecimalField(max_digits=12, decimal_places=2, default=0.00)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return f"Ledger Entry {self.ledger_id} - Account: {self.account}"    
+    def __str__(self):
+        return f"Ledger Entry {self.ledger_id} - Account: {self.account}"    
 
-# class PurchaseOrders(models.Model):
-#     company = models.ForeignKey('Company', on_delete=models.CASCADE)
-#     po_number = models.CharField(max_length=50, unique=True)
-#     total_amount = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-#     STATUS_CHOICES = (
-#         ('Pending', 'Pending'),
-#         ('Completed', 'Completed'),
-#         ('Cancelled', 'Cancelled'),
-#     )
-#     status = models.CharField(max_length=50, choices=STATUS_CHOICES)
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     supplier = models.ForeignKey('Suppliers', on_delete=models.CASCADE)
+class PurchaseOrders(models.Model):
+    company = models.ForeignKey('Company', on_delete=models.CASCADE)
+    po_number = models.CharField(max_length=50, unique=True)
+    total_amount = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    STATUS_CHOICES = (
+        ('Pending', 'Pending'),
+        ('Completed', 'Completed'),
+        ('Cancelled', 'Cancelled'),
+    )
+    status = models.CharField(max_length=50, choices=STATUS_CHOICES)
+    created_at = models.DateTimeField(auto_now_add=True)
+    supplier = models.ForeignKey('Suppliers', on_delete=models.CASCADE)
 
-#     def __str__(self):
-#         return self.po_number
+    def __str__(self):
+        return self.po_number
 
-# class SupplierPayments(models.Model):
-#     company = models.ForeignKey('Company', on_delete=models.CASCADE)
-#     purchase_order = models.ForeignKey('PurchaseOrders', on_delete=models.CASCADE, db_column='po_id')
-#     amount_paid = models.DecimalField(max_digits=12, decimal_places=2)
-#     payment_date = models.DateTimeField(auto_now_add=True)
-#     supplier = models.ForeignKey('Suppliers', on_delete=models.CASCADE, db_column='supplier_id')
+class SupplierPayments(models.Model):
+    company = models.ForeignKey('Company', on_delete=models.CASCADE)
+    purchase_order = models.ForeignKey('PurchaseOrders', on_delete=models.CASCADE, db_column='po_id')
+    amount_paid = models.DecimalField(max_digits=12, decimal_places=2)
+    payment_date = models.DateTimeField(auto_now_add=True)
+    supplier = models.ForeignKey('Suppliers', on_delete=models.CASCADE, db_column='supplier_id')
 
-#     def __str__(self):
-#         return f"Payment {self.payment_id} - PO: {self.purchase_order.po_number}"
+    def __str__(self):
+        return f"Payment {self.payment_id} - PO: {self.purchase_order.po_number}"
 
-# class PriceSet(models.Model):
-#     company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
-#     price_name = models.CharField(max_length=255) 
-#     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-#     unit_price = models.DecimalField(max_digits=10, decimal_places=2) 
-#     currency = models.CharField(max_length=3)  # e.g., USD, EUR, KES
+class PriceSet(models.Model):
+    company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
+    price_name = models.CharField(max_length=255) 
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    unit_price = models.DecimalField(max_digits=10, decimal_places=2) 
+    currency = models.CharField(max_length=3)  # e.g., USD, EUR, KES
 
-#     def __str__(self):
-#         return self.price_name
+    def __str__(self):
+        return self.price_name
 
-# class ConsignmentInventory(models.Model):
-#     consignment_no = models.CharField(max_length=255) 
-#     delivery_no = models.CharField(max_length=255) 
-#     company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
-#     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     received_at = models.DateTimeField(null=True, blank=True) 
+class ConsignmentInventory(models.Model):
+    consignment_no = models.CharField(max_length=255) 
+    delivery_no = models.CharField(max_length=255) 
+    company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    received_at = models.DateTimeField(null=True, blank=True) 
 
-#     def __str__(self):
-#         return f"Consignment: {self.consignment_no}, Delivery: {self.delivery_no}"
+    def __str__(self):
+        return f"Consignment: {self.consignment_no}, Delivery: {self.delivery_no}"
 
 # class ItemInventory(models.Model):
     consignment_inventory = models.ForeignKey(ConsignmentInventory, on_delete=models.CASCADE)
@@ -160,56 +160,56 @@ class User(AbstractUser):
         return f"Invoice: {self.item_invoice_no}, Consignment: {self.consignment_inventory.consignment_no}"
 
 # class ItemInventoryTransaction(models.Model):
-#     company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
-#     item_inventory = models.ForeignKey(ItemInventory, on_delete=models.CASCADE)
-#     broker = models.CharField(max_length=255, blank=True, null=True)  
-#     buyer = models.CharField(max_length=255, blank=True, null=True)  
-#     status = models.CharField(max_length=50)  
-#     created_at = models.DateTimeField(auto_now_add=True)  
-#     sold_at = models.DateTimeField(blank=True, null=True)
+    company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
+    item_inventory = models.ForeignKey(ItemInventory, on_delete=models.CASCADE)
+    broker = models.CharField(max_length=255, blank=True, null=True)  
+    buyer = models.CharField(max_length=255, blank=True, null=True)  
+    status = models.CharField(max_length=50)  
+    created_at = models.DateTimeField(auto_now_add=True)  
+    sold_at = models.DateTimeField(blank=True, null=True)
 
-#     def __str__(self):
-#         return f"Transaction for {self.item_inventory}"
+    def __str__(self):
+        return f"Transaction for {self.item_inventory}"
 
 # class GeneralCargo(models.Model):
-#     consignment_no = models.CharField(max_length=255)  
-#     kra_no = models.CharField(max_length=255) 
-#     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-#     company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
-#     transporter = models.CharField(max_length=255, blank=True, null=True)  
-#     no_bags = models.PositiveIntegerField()
-#     units_measure = models.CharField(max_length=50)  
-#     net_weight = models.DecimalField(max_digits=10, decimal_places=2)  
-#     gross_weight = models.DecimalField(max_digits=10, decimal_places=2)  
-#     status_one = models.CharField(max_length=50)  
-#     created_at = models.DateTimeField(auto_now_add=True)
+    consignment_no = models.CharField(max_length=255)  
+    kra_no = models.CharField(max_length=255) 
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
+    transporter = models.CharField(max_length=255, blank=True, null=True)  
+    no_bags = models.PositiveIntegerField()
+    units_measure = models.CharField(max_length=50)  
+    net_weight = models.DecimalField(max_digits=10, decimal_places=2)  
+    gross_weight = models.DecimalField(max_digits=10, decimal_places=2)  
+    status_one = models.CharField(max_length=50)  
+    created_at = models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return f"Consignment: {self.consignment_no}"
+    def __str__(self):
+        return f"Consignment: {self.consignment_no}"
 
 # class CargoItemRelease(models.Model):
-#     general_cargo = models.ForeignKey(GeneralCargo, on_delete=models.CASCADE)
-#     company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
-#     transporter = models.CharField(max_length=255, blank=True, null=True)  
-#     no_bags = models.PositiveIntegerField()
-#     net_weight = models.DecimalField(max_digits=10, decimal_places=2)  
-#     gross_weight = models.DecimalField(max_digits=10, decimal_places=2)  
-#     status = models.CharField(max_length=50)  
-#     created_at = models.DateTimeField(auto_now_add=True)
+    general_cargo = models.ForeignKey(GeneralCargo, on_delete=models.CASCADE)
+    company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
+    transporter = models.CharField(max_length=255, blank=True, null=True)  
+    no_bags = models.PositiveIntegerField()
+    net_weight = models.DecimalField(max_digits=10, decimal_places=2)  
+    gross_weight = models.DecimalField(max_digits=10, decimal_places=2)  
+    status = models.CharField(max_length=50)  
+    created_at = models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return f"Release for Cargo: {self.general_cargo.consignment_no}"
+    def __str__(self):
+        return f"Release for Cargo: {self.general_cargo.consignment_no}"
     
 # class OperationTable(models.Model):
-#     company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
-#     name_operation = models.CharField(max_length=255)
-#     company = models.ForeignKey(Company, on_delete=models.CASCADE)
-#     price_set = models.ForeignKey(PriceSet, on_delete=models.CASCADE)
+    company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
+    name_operation = models.CharField(max_length=255)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    price_set = models.ForeignKey(PriceSet, on_delete=models.CASCADE)
 
-#     def __str__(self):
-#         return self.name_operation
+    def __str__(self):
+        return self.name_operation
     
-class AccountsDetails(models.Model):
+# class AccountsDetails(models.Model):
     account_name = models.CharField(max_length=255)
     account_type = models.CharField(max_length=100, blank=True, null=True)
     account_code = models.CharField(max_length=50, unique=True, blank=True, null=True)
@@ -222,7 +222,7 @@ class AccountsDetails(models.Model):
     def __str__(self):
         return self.account_name
 
-class TransactionItem(models.Model):
+# class TransactionItem(models.Model):
     transaction_code = models.CharField(max_length=100, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     company = models.ForeignKey('Company', on_delete=models.CASCADE, db_column='company_id')
@@ -232,7 +232,7 @@ class TransactionItem(models.Model):
     def __str__(self):
         return self.transaction_code
     
-class ChargesInvoice(models.Model):
+# class ChargesInvoice(models.Model):
     contract_name = models.CharField(max_length=255, blank=True, null=True)
     item_name = models.CharField(max_length=255, blank=True, null=True)
     item_description = models.TextField(blank=True, null=True)

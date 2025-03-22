@@ -1,10 +1,13 @@
 from django.db import models
-from .shared import CompanyUser, ConsignmentInventory
+from django.contrib.auth import get_user_model
+# from .shared import CompanyUser, ConsignmentInventory
+
+User = get_user_model()
 # create producer models here
 
 class ItemInventory(models.Model):
-    consignment_inventory = models.ForeignKey(ConsignmentInventory, on_delete=models.CASCADE)
-    company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
+    consignment_inventory = models.ForeignKey('api.ConsignmentInventory', on_delete=models.CASCADE)
+    company_user = models.ForeignKey('api.CompanyUser', on_delete=models.CASCADE)
     item_invoice_no = models.CharField(max_length=255)  
     item_grade = models.CharField(max_length=100)  
     item_no_of_bags = models.PositiveIntegerField()

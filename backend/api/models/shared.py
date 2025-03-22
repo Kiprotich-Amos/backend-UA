@@ -1,9 +1,7 @@
 from django.db import models
-from .models import User
-from .producer import ItemInventory
-
+from django.contrib.auth import get_user_model
+User = get_user_model()
 # common shared models file here for
-
 
 class Role(models.Model):
     role_name = models.CharField(max_length=100)
@@ -20,6 +18,8 @@ class Company(models.Model):
     company_approval = models.BooleanField(default=False)
     last_modified = models.DateTimeField(auto_now=True)
     modified_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='modified_companies') # added modified_by field
+    # class Meta:
+    #     unique_together = ('user', 'company')
 
     def __str__(self):
         return self.company_name
@@ -60,7 +60,7 @@ class ConsignmentInventory(models.Model):
     
 class ItemInventoryTransaction(models.Model):
     company_user = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
-    item_inventory = models.ForeignKey(ItemInventory, on_delete=models.CASCADE)
+    item_inventory = models.ForeignKey('api.ItemInventory', on_delete=models.CASCADE)
     broker = models.CharField(max_length=255, blank=True, null=True)  
     buyer = models.CharField(max_length=255, blank=True, null=True)  
     status = models.CharField(max_length=50)  
