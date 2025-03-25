@@ -10,11 +10,20 @@
 }
 
 /* Table Styles */
+.table_card{
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px; /* Simplified margin */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 table {
     width: 100%;
     border-collapse: collapse;
     font-family: sans-serif;
     margin: 20px 0;
+    box-shadow: 0 4px 4px rgba(249, 249, 249, 0.884)
 }
 
 th, td {

@@ -1,0 +1,108 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #f4f4f4; /* Add a subtle background to the body */
+}
+
+.nav_bar {
+    background-color: white; /* Use a more modern aqua variant */
+    padding: 10px;
+    width: calc(100% - 240px); /* Adjusted to 220px to match content margin */
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    margin-left: 240px; 
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1)
+}
+
+.nav_bar .search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 5px 10px; /* Add horizontal padding */
+    border-radius: 4px;
+    border: 1px solid #070707; /* Add a light border */
+}
+
+.nav_bar .search input[type="search-text"] {
+    padding: 8px;
+    border: none; /* Remove default input border */
+    border-right: 1px solid #ccc; /* Add separator between input and button */
+    border-radius: 4px 0 0 4px; /* Round only left corners */
+    margin-right: 5px;
+    outline: none; /* Remove default focus outline */
+}
+
+.nav_bar .search button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 4px 4px 0; /* Round only right corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add smooth transition */
+}
+
+.nav_bar .search button:hover {
+    background-color: #0056b3; /* Darken button on hover */
+}
+
+.side {
+    background-color: #333;
+    width: 200px;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    overflow-y: auto;
+    color: white;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* Add a shadow to the right side of the sidebar */
+}
+
+.side h3,
+.side ul,
+.side li {
+    color: white;
+}
+
+.side ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0;
+}
+
+.side li {
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.side li:hover {
+    background-color: #444; /* Darken list items on hover */
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 220px;
+    margin-top: 60px; /* Adjusted to match navbar height + padding */
+}
+
+.card,
+.data {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px; /* Simplified margin */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2,
+.data h2 {
+    margin-top: 0; /* Remove top margin from headings */
+}
