@@ -1,0 +1,113 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+th input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e0f7fa;
+}
+
+#invoiceFilterContainer {
+    display: flex;
+    align-items: center;
+}
+
+#invoiceFilterContainer label {
+    margin-right: 5px;
+}
+
+#invoiceFilter {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+th input[type="text"] {
+    width: calc(60% - 10px); /* Adjust width as needed */
+    padding: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+th button {
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.search-filter-row {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.search-input-group {
+    display: flex;
+    align-items: center;
+}
+
+.search-label {
+    display: block;
+}
+
+.search-input {
+    padding: 5px;
+    box-sizing: border-box;
+    width: 200px;
+    margin-right: 5px;
+}
+
+.filter-input {
+    padding: 5px;
+    box-sizing: border-box;
+    width: 150px;
+}
+
+.search-button, .print-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+}.pagination-row {
+    text-align: center;
+    padding: 10px;
+}
+
+.pagination-container {
+    display: inline-block;
+}
+
+.pagination-button {
+    padding: 8px 12px;
+    margin: 0 5px;
+}
+
+.current-page {
+    padding: 8px 12px;
+    font-weight: bold;
+}

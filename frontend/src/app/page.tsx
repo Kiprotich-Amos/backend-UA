@@ -19,7 +19,7 @@ export default function Home() {
       </div>
 
       <nav className="bg-white shadow-md p-4 flex justify-between items-center relative z-10">
-        <div className="font-bold text-xl text-blue-800">United Warehouses Ltd</div>
+        <div className="font text-xl text-blue-800">United Warehouses Ltd</div>
         <div className="flex gap-4">
           <Link href="/login" className="hover:text-blue-600 transition-colors duration-200">Login</Link>
           <Link href="/about" className="hover:text-blue-600 transition-colors duration-200">About Us</Link>
