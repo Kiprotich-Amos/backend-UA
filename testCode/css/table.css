@@ -1,3 +1,15 @@
+/* Variables */
+:root {
+    --table-border-color: #ddd;
+    --table-header-bg: #f2f2f2;
+    --even-row-bg: #f9f9f9;
+    --hover-row-bg: #e0f7fa;
+    --input-button-padding: 5px;
+    --input-button-margin: 5px;
+    --pagination-button-padding: 8px 12px;
+}
+
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -6,59 +18,42 @@ table {
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--table-border-color);
     padding: 8px;
     text-align: left;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: var(--table-header-bg);
     font-weight: bold;
 }
 
-th input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    margin-top: 5px;
-    box-sizing: border-box;
-}
-
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: var(--even-row-bg);
 }
 
 tr:hover {
-    background-color: #e0f7fa;
+    background-color: var(--hover-row-bg);
 }
 
+/* Invoice Filter Styles */
 #invoiceFilterContainer {
     display: flex;
     align-items: center;
 }
 
 #invoiceFilterContainer label {
-    margin-right: 5px;
+    margin-right: var(--input-button-margin);
 }
 
 #invoiceFilter {
-    padding: 5px;
+    padding: var(--input-button-padding);
     box-sizing: border-box;
 }
 
-th input[type="text"] {
-    width: calc(60% - 10px); /* Adjust width as needed */
-    padding: 5px;
-    margin-top: 5px;
-    box-sizing: border-box;
-}
-
-th button {
-    padding: 5px 10px;
-    margin: 5px;
-}
-
+/* Search/Filter Row Styles */
 .search-filter-row {
-    background-color: #f2f2f2;
+    background-color: var(--table-header-bg);
     font-weight: bold;
 }
 
@@ -77,23 +72,35 @@ th button {
     display: block;
 }
 
-.search-input {
-    padding: 5px;
+.search-input, .filter-input {
+    padding: var(--input-button-padding);
     box-sizing: border-box;
+    margin-right: var(--input-button-margin);
+}
+
+.search-input {
     width: 200px;
-    margin-right: 5px;
 }
 
 .filter-input {
-    padding: 5px;
-    box-sizing: border-box;
     width: 150px;
 }
 
-.search-button, .print-button {
+.search-button, .print-button, .read-button {
     padding: 5px 10px;
-    margin-right: 5px;
-}.pagination-row {
+    margin-right: var(--input-button-margin);
+    background-color: aqua;
+    border: 0px;
+    transition: background-color 0.3s ease;
+}
+.read-button {
+    border-radius: 15px;
+}.search-button:hover, .print-button:hover, .read-button:hover {
+    background-color: limegreen; 
+}
+
+/* Pagination Styles */
+.pagination-row {
     text-align: center;
     padding: 10px;
 }
@@ -103,11 +110,11 @@ th button {
 }
 
 .pagination-button {
-    padding: 8px 12px;
+    padding: var(--pagination-button-padding);
     margin: 0 5px;
 }
 
 .current-page {
-    padding: 8px 12px;
+    padding: var(--pagination-button-padding);
     font-weight: bold;
 }
