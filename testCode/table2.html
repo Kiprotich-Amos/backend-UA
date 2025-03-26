@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Table</title>
+    <link rel="stylesheet" href="./css/table2.css">
+</head>
+<body>
+    <section class="table_card">
+        <table>
+            <tr>
+                <td colspan="9" class="search-filter-row">
+                    <div class="search-filter-container">
+                        <div>
+                            <label for="teaRelease" class="search-label">Tea releasing</label>
+                            <div class="search-input-group">
+                                <input id="teaRelease" placeholder="Search by Consignment Number" type="search-input" class="search-input">
+                                <button type="search" class="search-button">Search</button>
+                                <button type="button" id="printSummary" class="print-button">Print Summary</button>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="teaFilter" class="search-label">Filter by Invoice No:</label>
+                            <input type="search-input" id="teaFilter" placeholder="Tea Invoice No." class="filter-input">
+                            <button type="search" class="search-button">Search</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>INVOICE NO</th>
+                <th>GRADE</th>
+                <th>GARDEN</th>
+                <th>NO OF BAGS</th>
+                <th>PALLET WEIGHT</th>
+                <th>TARE WEIGHT</th>
+                <th>NET WEIGHT</th>
+                <th>GROSS WEIGHT</th>
+                <th>ACTION</th>
+            </tr>
+            <tr>
+                <td>
+                    <select>
+                        <option value="INV001">INV001</option>
+                        <option value="INV002">INV002</option>
+                        <option value="INV003">INV003</option>
+                    </select>
+                <td><input type="text" value="BP1"></td>
+                <td>
+                    <select>
+                        <option value="">Select Garden</option>
+                        <option value="Rose Garden">Rose Garden</option>
+                        <option value="Tulip Garden">Tulip Garden</option>
+                        <option value="Lily Garden">Lily Garden</option>
+                    </select>
+                </td>
+                <td><input type="text" value="100"></td>
+                <td><input type="text" value="50 kg"></td>
+                <td><input type="text" value="5 kg"></td>
+                <td><input type="text" value="45 kg"></td>
+                <td><input type="text" value="55 kg"></td>
+                <td><button class="read-button">Read</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <select>
+                        <option value=""></option>
+                    </select>
+                </td>
+                <td><input type="text" ></td>
+                <td>
+                    <select>
+                        <option value=""></option>
+                    </select>
+                </td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><button class="read-button">Read</button></td>
+            </tr>
+            <tr>
+                <td colspan="9" class="pagination-row">
+                    <div class="pagination-container">
+                        <button id="prevPage" class="pagination-button" disabled>Previous</button>
+                        <span id="currentPage" class="current-page">Page 1</span>
+                        <button id="nextPage" class="pagination-button">Next</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>
