@@ -1,10 +1,11 @@
-import { sign } from "crypto";
+"use client";
 import React from "react";
+import RegistrationForm from "./index";
 
 const SignPage = ()=>{
     return(
         <div>
-            Sign -Up on development
+            <RegistrationForm />
         </div>
     );
 };

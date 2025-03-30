@@ -5,7 +5,7 @@ import Button from "@/app/components/Button";
 import styles from "@/app/utils/css/auth/LoginForm.module.css";
 import { useRouter } from 'next/navigation';
 
-interface LoginFormProps {} // You might have props for the LoginForm later
+interface LoginFormProps {}
 
 const LoginForm: React.FC<LoginFormProps> = () =>{
     const [email, setEmail] = useState<string>('');

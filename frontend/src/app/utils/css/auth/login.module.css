@@ -1,15 +1,9 @@
-/* .login{
-    background-color: darkgray;
-    align-items: center;
-} */
 
 .container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    min-height: 100vh; /* Make the container take at least the full viewport height */
-    /* Optional: Add background color or other styles for the page */
-    /* background-color: #f0f0f0; */
+    justify-content: center;  
+    align-items: center; 
+    min-height: 100vh; 
   }
   
   /* You can add other styles for the page here if needed */
