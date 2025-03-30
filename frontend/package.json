@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-types": "tcm src/app/**/*.module.css --outDir types"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

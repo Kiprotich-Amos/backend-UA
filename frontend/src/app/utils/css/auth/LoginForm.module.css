@@ -1,0 +1,46 @@
+.loginContainer {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .loginContainer h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .signUpLink {
+    margin-top: 15px;
+    text-align: center;
+  }
+/* Add these styles for the button */
+.button {
+  display: block; /* Make the button take up the full width */
+  width: 100%;
+  padding: 10px 12px; /* Adjust to match your Input's padding */
+  border: 1px solid #ccc; /* Adjust to match your Input's border */
+  font-size: 16px; /* Adjust to match your Input's font size */
+  font-family: sans-serif; /* Adjust to match your Input's font family */
+  border-radius: 5px; /* Adjust to match your Input's border radius */
+  background-color: #fff; /* Adjust to match your Input's background color */
+  color: #333; /* Adjust to match your Input's text color */
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-top: 10px; /* Add some space above the button */
+  transition: background-color 0.3s ease; /* Optional: for hover effect */
+}
+
+.button:hover {
+  background-color: #f0f0f0; /* Optional: subtle hover effect */
+}
+
+.button:disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}
