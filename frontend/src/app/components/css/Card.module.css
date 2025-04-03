@@ -1,10 +1,32 @@
-.card {
+.cardWrapper {
+    position: relative; /* Needed for absolute positioning of the link */
+    margin: 10px;
+    width: 300px; /* Adjust as needed */
+  }
+  
+  .cardLink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-decoration: none; /* Remove default link underline */
+    color: inherit; /* Inherit text color from parent */
+    cursor: pointer; /* Indicate it's clickable */
+    border-radius: inherit; /* Inherit border-radius from the card */
+  }
+  
+  .card {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    width: 300px; /* Adjust as needed */
-    overflow: hidden; /* To contain rounded corners of inner elements */
+    overflow: hidden;
+    /* Remove margin from here, it's on the wrapper now */
+    width: 100%; /* Make the card take full width of the wrapper */
+    height: 100%; /* Make the card take full height of the wrapper */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space between header, body, footer */
   }
   
   .cardHeader {
@@ -14,20 +36,17 @@
   }
   
   .cardHeader h3 {
-    margin: 0; /* Remove default heading margins */
+    margin: 0;
   }
   
   .cardBody {
     padding: 15px;
-  }
-  
-  .cardFooter {
+    flex-grow: 1; /* Allow body to take up remaining vertical space */
+}.cardFooter {
     background-color: #f9f9f9;
     padding: 10px;
     border-top: 1px solid #ccc;
-    text-align: right; /* Example: Align actions to the right */
-  }
-  
-  .cardFooter button {
+    text-align: right;
+}.cardFooter button {
     margin-left: 5px;
-  }
+}

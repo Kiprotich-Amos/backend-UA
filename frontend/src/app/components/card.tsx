@@ -5,6 +5,7 @@ interface CardProps{
     title?: string;
     children: React.ReactNode;
     actions?: React.ReactNode;
+    href?: string;
 }
 
 const Card: React.FC<CardProps> =({title, children, actions}) =>{
