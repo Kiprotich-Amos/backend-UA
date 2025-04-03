@@ -1,4 +1,5 @@
 import React from "react";
+import TeaReceivingTable from "@/app/components/TeaReceivingTable"
 import styles from '@/app/utils/css/dash/dashboard.module.css';
 
 interface DashboardProps{};
@@ -48,6 +49,10 @@ const Dashboard : React.FC<DashboardProps> = () =>{
                     <h2>Data Section</h2>
                     <p>Here you can display various data visualizations or tables.</p>
                 </section>
+                <section className={styles.data}>
+                    
+                </section>
+                <TeaReceivingTable/>
             </main>
         </>
     );

@@ -1,48 +1,48 @@
 .loginContainer {
-    max-width: 400px;
+    max-width: 600px;
     margin: 50px auto;
-    color: blue;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: aquamarine;
-  }
-  
-  .loginContainer h2 {
+    background-color: #ddd;
+}.loginContainer h2 {
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  .signUpLink {
-    margin-top: 15px;
-    text-align: center;
-  }
-/* Add these styles for the button */
-.button {
-    display: block; 
-    width: 100%;
-    padding: 10px 12px; 
-    border: 1px solid #cccccc; 
-    font-size: 16px; 
-    font-family: sans-serif; 
-    border-radius: 5px; 
-    background-color: #fff; 
-    color: blue; 
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    margin-top: 10px; 
-    transition: background-color 0.3s ease; 
+}.loginContainer p {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9em;
+  color: #777; 
+}.loginContainer p a {
+  color: #007bff;
+  text-decoration: none;
+}.signUpLink {
+  margin-top: 15px;
+  text-align: center;
+}.button {
+  display: block; 
+  width: 100%;
+  padding: 10px 12px; 
+  border: 1px solid #cccccc; 
+  font-size: 16px; 
+  font-family: sans-serif; 
+  border-radius: 5px; 
+  background-color: blue; 
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-top: 10px; 
+  transition: background-color 0.3s ease; 
 }
 
 .button:hover {
-    background-color: #2ff615; 
+  background-color: green; 
 }
 
 .button:disabled {
-    background-color: #e0e0e0;
-    color: #999;
-    cursor: not-allowed;
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
 }
