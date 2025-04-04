@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
         </Card>
 
         <Card title="Warehouse" href="/warehouse">
-          <p>View and manage inventory in our warehouse.</p>
+          <p>View and manage storage in our warehouse.</p>
         </Card>
 
         <Card title="C & F" href="/clearing-and-forwarding">
@@ -21,6 +21,12 @@ const HomePage: React.FC = () => {
 
         <Card title="Administration" href="/admin">
           <p>Access administrative tools and settings.</p>
+        </Card>
+        <Card title="Producer" href="/admin">
+          <p>Access Producer Services in our warehouse.</p>
+        </Card>
+        <Card title="Broker" href="/admin">
+          <p>Access Broker Services in our warehouse.</p>
         </Card>
       </div>
     </div>
