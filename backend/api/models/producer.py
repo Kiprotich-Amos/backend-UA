@@ -4,7 +4,6 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 # create producer models here
-
 class ItemInventory(models.Model):
     consignment_inventory = models.ForeignKey('api.ConsignmentInventory', on_delete=models.CASCADE)
     company_user = models.ForeignKey('api.CompanyUser', on_delete=models.CASCADE)

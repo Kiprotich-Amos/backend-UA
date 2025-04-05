@@ -1,7 +1,7 @@
-# from django.urls import path
-# from .views import RegisterAPIView,LoginAPIView
-# # from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-
+from django.urls import path
+from .viewpoint.auth import LoginAPIView, RegisterAPIView, RoleAPIView
+# from .viewpoint.role_views import  RoleAPIView
+from rest_framework_simplejwt.views import TokenRefreshView
 
 
 # urlpatterns = [
@@ -10,9 +10,6 @@
 #     path ('register-user', RegisterAPIView.as_view(),  name = 'register-user'),
 #     path('login/', LoginAPIView.as_view(), name='login')
 # ]
-from django.urls import path
-from .views import LoginAPIView, RegisterAPIView, RoleAPIView
-from rest_framework_simplejwt.views import TokenRefreshView
 
 urlpatterns = [
     path('login/', LoginAPIView.as_view(), name='login'),
