@@ -30,7 +30,7 @@ const LoginForm: React.FC<LoginFormProps> = () =>{
             <form onSubmit={handleSubmit}>
                 <Input type="email" id='email' name="email" placeholder="Email" value={email} onChange={handleEmailChange}/>
                 <Input type="password" id = "password" name="password" placeholder="Password" value={password} onChange={handlePasswordChange}/>
-                <Button className={styles.button} type="submit">Login</Button>
+                <Button id="submit" className={styles.button} type="submit">Login</Button>
             </form>
             <p>
                 Don't have an  account? <a href="/sign-up">Sign Up</a>
