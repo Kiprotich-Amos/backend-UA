@@ -1,0 +1,109 @@
+/* release.module.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    min-height: 100vh; /* Adjust as needed */
+  }
+  
+  .releaseCard {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px; /* Adjust as needed */
+  }
+  
+  .columnPair {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .columnPair > div {
+    flex-basis: calc(50% - 10px); /* Adjust spacing between columns */
+  }
+  
+  .releaseCard > div > label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .releaseCard > div > input[type="text"],
+  .releaseCard > div > input[type="number"],
+  .releaseCard > div > select {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .releaseCard > div > input[type="text"]:focus,
+  .releaseCard > div > input[type="number"]:focus,
+  .releaseCard > div > select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .releaseCard select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23343a40" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5.0 0 1 0-.708z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 16px 12px;
+    padding-right: 30px;
+  }
+  
+  .fullWidthInput {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .fullWidthInput > label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .fullWidthInput > input[type="text"],
+  .fullWidthInput > input[type="number"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .fullWidthButton {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .fullWidthButton > button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Button takes full width */
+    text-align: center; /* Center button text */
+    box-sizing: border-box; /* Ensure padding is within width */
+  }
+  
+  .fullWidthButton > button:hover {
+    background-color: #1e7e34;
+  }

@@ -4,7 +4,7 @@ import styles from './css/Button.module.css';
 interface ButtonProps{
     type?:'button' | 'submit' | 'reset';
     onClick?: MouseEventHandler<HTMLButtonElement>;
-    id:string;
+    id?:string;
     children?: React.ReactNode;
     className?: string;
     disabled?: boolean;

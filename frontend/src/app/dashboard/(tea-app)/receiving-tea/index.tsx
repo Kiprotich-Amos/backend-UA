@@ -32,9 +32,8 @@ const Receive = () => {
     };
 
     const handleReadScale = () => {
-        // Implement your logic to read data from the scale here
+        // Implementlogic to read data from the scale here
         console.log("Reading data from the scale...");
-        // You would likely update the formData state with the values read from the scale
     };
 
     const handleAddRow = (event: FormEvent<HTMLFormElement>) => {

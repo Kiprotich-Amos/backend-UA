@@ -1,0 +1,92 @@
+/* cargo.module.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+  }
+  
+  .receivingCard {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .formColumn {
+    flex-basis: calc(50% - 15px);
+    margin-bottom: 20px;
+  }
+  
+  .receivingCard > div {
+    margin-bottom: 15px; /* Slightly reduced margin */
+  }
+  
+  .receivingCard > .formColumn {
+    margin-bottom: 0;
+  }
+  
+  .receivingCard label {
+    display: block;
+    margin-bottom: 5px; 
+    color: #333;
+    vertical-align: top;
+  }
+  
+  .receivingCard input[type="text"],
+  .receivingCard input[type="number"],
+  .receivingCard select {
+    width: calc(100% - 20px); 
+    padding: 8px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  .receivingCard input[type="text"]:focus,
+  .receivingCard input[type="number"]:focus,
+  .receivingCard select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .receivingCard select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23343a40" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 16px 12px;
+    padding-right: 30px;
+  }
+  
+  .buttonContainer {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .buttonContainer button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: auto;
+  }
+  
+  .buttonContainer button:hover {
+    background-color: #0056b3;
+  }
