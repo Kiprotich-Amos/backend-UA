@@ -1,13 +1,13 @@
 import React from "react";
-import ReceiveTea from './index';
+import MyReusableTable from './index';
 import styles from "@/app/utils/css/dash/indexReceive.module.css"
 
 
-const ReceiveTea = () =>{
+const ReceivePage = () =>{
     return(
         <div className={styles.body}>
-            <ReceiveTea />
+            <MyReusableTable />
         </div>
     );
 };
-export default ReceiveTea;
+export default ReceivePage;
