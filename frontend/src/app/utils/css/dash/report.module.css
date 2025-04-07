@@ -1,0 +1,80 @@
+.tableCard {
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    margin: 2rem;
+  }
+  
+  .searchFilterRow {
+    margin-bottom: 1rem;
+  }
+  
+  .searchFilterContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .searchLabel {
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    display: block;
+    font-size: 1rem;
+  }
+  
+  .searchInputGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .searchInput,
+  .filterInput {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    min-width: 220px;
+  }
+  
+  .searchButton,
+  .printButton,
+  .readButton {
+    padding: 0.5rem 1rem;
+    background-color: #005792;
+    color: white;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .searchButton:hover,
+  .printButton:hover,
+  .readButton:hover {
+    background-color: #60cd47;
+  }
+  
+  .table {
+    width: 100%;
+    color: #000;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #eaeaea;
+    font-weight: 600;
+  }
+  

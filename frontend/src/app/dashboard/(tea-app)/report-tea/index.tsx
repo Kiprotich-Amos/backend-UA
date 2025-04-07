@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "@/app/utils/css/dash/receiving.module.css";
+import styles from "@/app/utils/css/dash/report.module.css";
 
 interface TableRowData {
   invoiceNo: string;

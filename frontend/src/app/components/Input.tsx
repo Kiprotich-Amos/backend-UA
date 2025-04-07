@@ -2,7 +2,7 @@ import React, {ChangeEvent} from 'react';
 import styles from '@/app/components/css/Input.module.css';
 
 interface InputProps{
-    type?: 'text'| 'password'| 'email' | 'Nnumber'| 'date' |'tel';
+    type?: 'text'| 'password'| 'email' | 'number'| 'date' |'tel';
     id?: string;
     name?: string;
     placeholder?: string;

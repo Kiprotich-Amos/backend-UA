@@ -1,80 +1,85 @@
-.tableCard {
-    padding: 1rem;
-    background-color: #f8f8f8;
-    border-radius: 12px;
-    margin: 2rem;
-  }
-  
-  .searchFilterRow {
-    margin-bottom: 1rem;
-  }
-  
-  .searchFilterContainer {
+/* receiving.module.css */
+
+.formContainer form {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .searchLabel {
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-    display: block;
-    font-size: 1rem;
-  }
-  
-  .searchInputGroup {
-    display: flex;
     align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .searchInput,
-  .filterInput {
-    padding: 0.5rem;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    min-width: 220px;
-  }
-  
-  .searchButton,
-  .printButton,
-  .readButton {
-    padding: 0.5rem 1rem;
-    background-color: #005792;
-    color: white;
-    margin: 5px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.formContainer label {
+    margin-right: 5px;
+}
+
+.formContainer input[type="text"],
+.formContainer input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.formContainer button {
+    padding: 10px 15px;
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
     cursor: pointer;
-    font-weight: 500;
-  }
-  
-  .searchButton:hover,
-  .printButton:hover,
-  .readButton:hover {
-    background-color: #60cd47;
-  }
-  
-  .table {
+}
+
+.formContainer button:hover {
+    background-color: #0056b3;
+}
+
+.formContainer input[name="ConsignmentNo"],
+.formContainer input[name="InvoiceNo"],
+.formContainer input[name="grade"],
+.formContainer input[name="garden"] {
+    flex-grow: 1;
+    min-width: 10px;
+}
+
+.formContainer input[name="noOfBags"],
+.formContainer input[name="palletWeight"],
+.formContainer input[name="tareWeight"],
+.formContainer input[name="netWeight"],
+.formContainer input[name="grossWeight"] {
+    width: 120px;
+}
+
+/* Style the table using local class names */
+.receivingTable {
     width: 100%;
-    color: #000;
     border-collapse: collapse;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .table th,
-  .table td {
-    padding: 0.75rem;
+    margin-top: 20px;
+}
+
+.tableHeader {
+    background-color: #f2f2f2;
+}
+
+.tableHeaderCell,
+.tableDataCell {
+    border: 1px solid #ddd;
+    padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .table th {
-    background-color: #eaeaea;
-    font-weight: 600;
-  }
-  
+}
+
+.submitAllButton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.submitAllButton:hover {
+    background-color: #1e7e34;
+}
