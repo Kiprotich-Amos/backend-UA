@@ -60,55 +60,55 @@ const Receive = () => {
         <div>
             <div className={styles.form}>
                 <div className={styles.formContainer}>
-                    <form onSubmit={handleAddRow}>
-                        <label>Consignment No: </label>
-                        <Input type="text" name="ConsignmentNo" value={formData.ConsignmentNo || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>}/>
-                        <label> Invoice No:</label>
-                        <Input type="text" name="InvoiceNo" value={formData.InvoiceNo || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>}/>
-                        <label> Grade:</label>
-                        <select name="grade" value={formData.grade || ""} onChange={handleInputChange as ChangeEventHandler<HTMLSelectElement>}>
+                    <form onSubmit={handleAddRow} className={styles.gridForm}>
+                        <div className={styles.field}>
+                            <label>Consignment No:</label>
+                            <Input type="text" name="ConsignmentNo" value={formData.ConsignmentNo || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>} />
+                        </div>
+                        <div className={styles.field}>
+                            <label>Invoice No:</label>
+                            <Input type="text" name="InvoiceNo" value={formData.InvoiceNo || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>} />
+                        </div>
+                        <div className={styles.field}>
+                            <label>Grade:</label>
+                            <select name="grade" value={formData.grade || ""} onChange={handleInputChange as ChangeEventHandler<HTMLSelectElement>}>
                             <option value="">Select Grade</option>
                             <option value="FBOP">FBOP</option>
                             <option value="BOP">BOP</option>
                             <option value="PF1">PF1</option>
                             <option value="Dust">Dust</option>
-                            {/* Add more grade options as needed */}
-                        </select>
-                        <label>Garden</label>
-                        <Input
-                            type="text"
-                            name="garden"
-                            value={formData.garden || ""}
-                            onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>}
-                        />
-                        <label>Number of Bags</label>
-                        <Input
-                            type="number"
-                            name="noOfBags"
-                            value={formData.noOfBags === undefined ? '' : formData.noOfBags}
-                            onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>}
-                        />
-                        <label>Pallet Weight</label>
-                        <Input
-                            type="text"
-                            name="palletWeight"
-                            value={formData.palletWeight || ""}
-                            onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>}
-                        />
-                        <label>Tare Weight</label>
-                        <Input type="text" name="tareWeight" value={formData.tareWeight || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>}/>
-                        <label>Net Weight</label>
-                        <Input type="text" name="netWeight" value={formData.netWeight || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>}/>
-                        <label>Gross Weight</label>
-                        <Input type="text" name="grossWeight" value={formData.grossWeight || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>}/>
-
-                        <Button id="read-scale" type="button" onClick={handleReadScale}>Read Scale</Button>
-                        <Button id="add-row" type="submit">Add row</Button>
-                        <Button id="delete-row" type="button" onClick={handleDeleteRow}>Delete Row</Button>
-
+                            </select>
+                        </div>
+                        <div className={styles.field}>
+                            <label>Garden</label>
+                            <Input type="text" name="garden" value={formData.garden || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>} />
+                        </div>
+                        <div className={styles.field}>
+                            <label>Number of Bags</label>
+                            <Input type="number" name="noOfBags" value={formData.noOfBags === undefined ? '' : formData.noOfBags} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>} />
+                        </div>
+                        <div className={styles.field}>
+                            <label>Pallet Weight</label>
+                            <Input type="text" name="palletWeight" value={formData.palletWeight || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>} />
+                        </div>
+                        <div className={styles.field}>
+                            <label>Tare Weight</label>
+                            <Input type="text" name="tareWeight" value={formData.tareWeight || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>} />
+                        </div>
+                        <div className={styles.field}>
+                            <label>Net Weight</label>
+                            <Input type="text" name="netWeight" value={formData.netWeight || ""} onChange={handleInputChange as ChangeEventHandler<HTMLInputElement>} />
+                        </div>
+                        {/* Button row */}
+                        <div className={styles.buttonRow}>
+                            <Button id="read-scale" type="button" onClick={handleReadScale}>Read Scale</Button>
+                            <Button id="add-row" type="submit">Add Row</Button>
+                            <Button id="delete-row" type="button" onClick={handleDeleteRow}>Delete Row</Button>
+                        </div>
                     </form>
                 </div>
             </div>
+
             {/* tea receiving data */}
             <div className={styles.tableData}>
                 <div>
