@@ -1,113 +1,118 @@
-/* Center the form above the table */
+/* receiving.module.css */
 .form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Form container that holds the form */
-  .formContainer {
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .gridForm {
-    display: flex; 
-    gap: 0.21rem;
-    justify-content: space-between;
-  }
-  
-  /* Style for each field */
-  .field {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 20%;
-    font-size: 0.875rem;
-  }
-  
-  /* Label styling */
-  .field label {
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-  }
-  
-  /* Input and select styling */
-  .field input,
-  .field select {
-    padding: 0.5rem;
-    font-size: 0.875rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-  }
-  
-  /* Button row styling */
-  .buttonRow {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 1rem;
-  }
-  
-  /* Button styling */
-  .buttonRow button {
-    flex: 1; /* Make the buttons equally sized */
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .buttonRow button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Table styling */
-  .tableData {
-    color: #000;
-  }
-  
-  .receivingTable {
-    justify-self: center;
-    border-collapse: collapse;
-    margin-top: 20px; /* Adds space between the form and table */
-  }
-  
-  .tableHeader {
-    background-color: #f2f2f2;
-  }
-  
-  .tableHeaderCell,
-  .tableDataCell {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-/* Button row styling */
+  /* Styles for the overall form container */
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.formContainer {
+  /* Styles for the inner container of the form */
+}
+
+.gridForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two equal columns */
+  gap: 15px; /* Spacing between grid items */
+  margin-bottom: 20px; /* Space between form fields and buttons */
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
 .buttonRow {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 10px;
-    margin-top: 1rem;
-    width: 100%; /* Ensure the button row takes up the full width */
-  }
-  
-  /* Button styling */
-  .buttonRow button {
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    width: 100%; /* Ensure buttons take full width */
-  }
-  
-  .buttonRow button:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  justify-self: center;
+  gap: 10px;
+}
+
+.buttonRow button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.buttonRow button#read-scale {
+  background-color: #007bff;
+  color: white;
+}
+
+.buttonRow button#add-row {
+  background-color: #28a745;
+  color: white;
+}
+
+.buttonRow button#delete-row {
+  background-color: #dc3545;
+  color: white;
+}
+
+.tableData {
+  color: #000;
+}
+
+.receivingTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.tableHeaderCell,
+.tableDataCell {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tableHeaderCell {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.selectedRow {
+  background-color: #e0f7fa; /* Highlight color for selected row */
+}
+
+.submitAllButton {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* Adjust for the gross weight field to span both columns if needed, or place it below */
+.gridForm > div:nth-child(9) { /* Targeting the Net Weight field */
+  /* You might not need to style this specifically if it flows correctly */
+}
+
+.gridForm > div:nth-child(10) { /* Targeting the Gross Weight field */
+  grid-column: 1 / -1; /* Make it span across both columns */
+}
+
+.gridForm > .buttonRow {
+  grid-column: 1 / -1; /* Make the button row span across both columns */
+  justify-content: flex-start; /* Align buttons to the start */
+}
