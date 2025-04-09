@@ -17,7 +17,7 @@ class Company(models.Model):
     company_address = models.CharField(max_length=100)
     company_approval = models.BooleanField(default=False)
     last_modified = models.DateTimeField(auto_now=True)
-    modified_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='modified_companies') # added modified_by field
+    modified_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='modified_companies') 
     # class Meta:
     #     unique_together = ('user', 'company')
 

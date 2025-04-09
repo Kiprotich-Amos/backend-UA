@@ -4,7 +4,7 @@
     width: calc(100% - 200px);
     position: fixed;
     top: 0;
-    z-index: 100;
+    /* z-index: 100; */
     display: flex;
     box-sizing: border-box;
     justify-content: flex-end;
@@ -50,6 +50,7 @@
     position: fixed;
     top: 0;
     overflow-y: auto;
+    overflow-x: hidden;
     color: white;
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); 
 }
@@ -61,7 +62,7 @@
 }
 
 .side ul {
-    list-style: none; /* Remove default list styles */
+    list-style-type: style;
     padding: 0;
 }
 
