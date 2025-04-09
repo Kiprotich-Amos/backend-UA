@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import styles from "@/app/utils/css/admin/contractForm.module.css";
 
 interface ContractFormData {
   contract_name: string;
@@ -71,7 +72,7 @@ const ContractForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <div>
         <label htmlFor="contract_name">Contract Name:</label>
         <input
@@ -92,6 +93,7 @@ const ContractForm = () => {
           value={formData.contract_client}
           onChange={handleInputChange}
           required
+          className={styles.form}
         >
           <option value="">Select Client</option>
           {clients.map((client) => (
@@ -124,6 +126,7 @@ const ContractForm = () => {
           onChange={handleInputChange}
           rows={4}
           required
+          className={styles.form}
         />
       </div>
 
@@ -152,7 +155,9 @@ const ContractForm = () => {
         />
       </div>
 
-      <button type="submit">Save Contract</button>
+      <button type="submit" className={styles.form}>
+        Save Contract
+      </button>
     </form>
   );
 };

@@ -56,7 +56,7 @@ const Receive = () => {
         console.log("Submitting all data:", tableData);
     };
     return (
-        <div>
+        <div className={styles.body}>
             <div className={styles.form}>
                 <div className={styles.formContainer}>
                     <form onSubmit={handleAddRow} className={styles.gridForm}>
