@@ -53,34 +53,47 @@
     overflow-x: hidden;
     color: white;
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); 
-}
-
-.side h3,
+}.side h3,
 .side ul,
 .side li {
     color: white;
-}
-
-.side ul {
-    list-style-type: style;
-    padding: 0;
-}
-
-.side li {
+}.side ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+}.side li {
     padding: 10px 0;
     cursor: pointer;
+    position: relative;
     transition: background-color 0.3s ease;
-}
-
-.side li:hover {
-    background-color: #444; /* Darken list items on hover */
-}
-
+}.side li:hover{
+    background-color: #3ec57b;
+    width: 100%;
+}.dropdown{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 50px;
+    border-radius: 5px;
+    background-color: #3ec57b;;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000px;
+    min-width: 150px;
+}.dropdown li {
+    padding: 10px 15px;
+  }
+  
+  .dropdown li:hover {
+    background-color: #d0d0d0;
+  }
 .content {
     flex-grow: 1;
     padding: 20px;
     margin-left: 220px;
-    margin-top: 60px; /* Adjusted to match navbar height + padding */
+    margin-top: 60px;
 }
 
 .card,
