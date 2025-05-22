@@ -44,8 +44,8 @@ class OperationTable(models.Model):
     
 class Contract(models.Model):
     contract_name = models.CharField(max_length=255)
-    contract_client = models.ForeignKey('api.Company', max_length=100)
-    contract_duration =models.CharField(max_length=100)
+    contract_client = models.ForeignKey('api.Company', on_delete=models.CASCADE)
+    contract_duration = models.CharField(max_length=100)
     expected_cargo = models.TextField(max_length=255)
-    contract_unit_price= models.DecimalField(10,2)
+    contract_unit_price = models.DecimalField(max_digits=10, decimal_places=2)
     contract_start = models.DateField()

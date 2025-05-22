@@ -1,5 +1,7 @@
 body{
     color: #000;
+    margin: 0%;
+    padding: 0%;
 }
 .nav_bar {
     background-color: #fff;
@@ -93,8 +95,17 @@ body{
   
   .main_content {
     margin-left: 200px;
-    padding: 80px 20px 20px; /* top padding for navbar */
+    padding: 80px 20px 20px;
     background-color: #f4f6f8;
     min-height: 100vh;
   }
-  
+  .consignmentReceiving{
+    /* margin: 0px; */
+    margin-top: 2px;
+    /* padding: 0; */
+  }
+  .menu{
+    font-size: smaller;
+    margin-top: 35px;
+    width: 100%;
+  }

@@ -1,0 +1,67 @@
+/* consignment.module.css */
+
+.formContainer {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.formContainer h2 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="datetime-local"] {
+  width: calc(100% - 12px); /* Adjust for padding */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.formGroup input[type="text"]:focus,
+.formGroup input[type="datetime-local"]:focus {
+  outline: none;
+  border-color: #007bff; /* Example primary color */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Example focus shadow */
+}
+
+.formGroup small {
+  display: block;
+  margin-top: 5px;
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.submitButton {
+  background-color: #007bff; /* Example primary color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #0056b3; /* Darker shade for hover */
+}
+
+/* You might have other styles in this file, these are just for the form */

@@ -1,6 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import styles from '@/app/utils/css/dash/dashboard.module.css';
+import Cargo from "@/app/dashboard/(general-cargo)/cargo";
+import TeaReceiving from '@/app/dashboard/(tea-app)/receiving-tea';
+import Container from "@/app/dashboard/(con)/consignment";
+
 
 interface DashboardProps {}
 
@@ -8,6 +12,9 @@ const Dashboard: React.FC<DashboardProps> = () => {
   const [teaDropdownOpen, setTeaDropdownOpen] = useState(false);
   const [cargoDropdownOpen, setCargoDropdownOpen] = useState(false);
   const [reportsDropdownOpen, setReportsDropdownOpen] = useState(false);
+  const [cargoReceiveDisplay, setCargoReceiveDisplay] = useState(false);
+  const [teaReceivingDisplay, setTeaReceivingDisplay] = useState(false);
+  const [containerDisplay, setContainerDisplay] = useState(false)
 
   return (
     <div className={styles.body}>
@@ -19,13 +26,14 @@ const Dashboard: React.FC<DashboardProps> = () => {
       </nav>
 
       <aside className={styles.side}>
-        <ul>
+        <ul className={styles.menu}>
+          <li>Home</li>
+          <li onClick={()=>{setContainerDisplay(true);setTeaReceivingDisplay(false); setCargoReceiveDisplay(false)}}>Receive Consignment</li>
           <li onMouseEnter={() => setTeaDropdownOpen(true)} onMouseLeave={() => setTeaDropdownOpen(false)}>
             Tea
             {teaDropdownOpen && (
               <ul className={styles.dropdown}>
-                <li>Receive Consignment</li>
-                <li>Receive Tea</li>
+                <li onClick={()=>{setContainerDisplay(false);setTeaReceivingDisplay(true); setCargoReceiveDisplay(false)}}>Receive Tea</li>
                 <li>Release Tea</li>
               </ul>
             )}
@@ -34,7 +42,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
             Cargo
             {cargoDropdownOpen && (
               <ul className={styles.dropdown}>
-                <li>Receive Consignment</li>
+                <li onClick={()=>{setContainerDisplay(false);setTeaReceivingDisplay(false); setCargoReceiveDisplay(true)}}>Receive Consignment</li>
                 <li>Release Cargo</li>
               </ul>
             )}
@@ -52,10 +60,16 @@ const Dashboard: React.FC<DashboardProps> = () => {
           <li>Settings</li>
         </ul>
       </aside>
-
       <main className={styles.main_content}>
-        <h1>Welcome to Dynamike Dashboard</h1>
-        {/* Your dashboard widgets or data visualizations go here */}
+        <div className={styles.consignmentReceiving}>
+          { cargoReceiveDisplay && <Cargo />}
+        </div>
+        <div className="styles.consignmentReceiving">
+          {teaReceivingDisplay && <TeaReceiving/>}
+        </div>
+        <div className="styles.consignmentReceiving">
+          {containerDisplay && <Container/>}
+        </div>
       </main>
     </div>
   );
